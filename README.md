@@ -6,4 +6,6 @@ In the session, I describe how I solved the [find the shortest route kata](<http
 
 I have also included the code from a more efficient method. This is in kata-loop.fsx.
 
-Follow me on Twitter (@ijrussell) and have a look at the [Trustbit blog](<https://trustbit.tech/blog>).
+As a bonus, I've added the code for Exercise 2.2 where we calculate the fastest route rather than the shortest. I have adapted the code from Exercise 2.1 to achieve this.
+
+Have a look at the [Trustbit blog](<https://trustbit.tech/blog>) for more posts on F#, Domain-Driven Design, and Machine Learning.
