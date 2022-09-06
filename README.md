@@ -1,6 +1,6 @@
 # Find the Shortest Route Kata in F\#
 
-This repository contains the slides, images, and code that I used for a brownbag session at Trustbit on July 12, 2022. The session was recorded and will be available soon!
+This repository contains the slides, images, and code that I used for a brownbag session at Trustbit on July 12, 2022. The session was recorded and is available at https://www.youtube.com/watch?v=Qs60WMXird8.
 
 In the session, I describe how I solved the [find the shortest route kata](<https://github.com/trustbit/exercises/blob/master/transport-tycoon_21.md>) in F#, using an exhaustive approach around a hierarchical data structure. The code for this is in kata-tree.fsx.
 
