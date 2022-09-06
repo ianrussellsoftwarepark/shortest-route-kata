@@ -4,7 +4,7 @@ This repository contains the slides, images, and code that I used for a brownbag
 
 In the session, I describe how I solved the [find the shortest route kata](<https://github.com/trustbit/exercises/blob/master/transport-tycoon_21.md>) in F#, using an exhaustive approach around a hierarchical data structure. The code for this is in kata-tree.fsx.
 
-I have also included the code from a more efficient method. This is in kata-loop.fsx.
+I have included code using more efficient solutions in kata-loop.fsx and kata-loop-dijkstra.fsx.
 
 As a bonus, I've added the code for Exercise 2.2 where we calculate the fastest route rather than the shortest. I have adapted the code from Exercise 2.1 to achieve this.
 
