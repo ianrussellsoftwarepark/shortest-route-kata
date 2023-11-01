@@ -24,17 +24,15 @@ let loadConnections path =
                 { Start = finish; Finish = start; Distance = int distance }
             | _ -> failwith $"{row} is invalid"
     ]
+    |> List.groupBy (fun cn -> cn.Start)
+    |> List.map (fun (loc, conns) -> loc, conns |> List.map (fun cn -> cn.Finish, cn.Distance) |> Map.ofList)
+    |> Map.ofList
 
-let calculateShortestRoute start finish (source:Connection list) =
-    let connections =
-        source
-        |> List.groupBy (fun cn -> cn.Start)
-        |> List.map (fun (loc, conns) -> loc, conns |> List.map (fun cn -> cn.Finish, cn.Distance) |> Map.ofList)
-        |> Map.ofList
+let calculateShortestRoute start finish (connections:Map<string,Map<string,int>>) =
     let rec searchForShortestPath current accMap =
         let visitDestinations state =
             (state, connections[current.Location])
-                ||> Map.fold
+            ||> Map.fold
                 (fun acc destination distance ->
                     let newWaypoint = {
                         Location = destination
@@ -49,8 +47,8 @@ let calculateShortestRoute start finish (source:Connection list) =
                 accMap |> Map.add current.Location (current.TotalDistance, current.Visited) |> visitDestinations
             else 
                 accMap
-    let shortestPaths = searchForShortestPath {Location = start; Visited = []; TotalDistance = 0} Map.empty
-    shortestPaths[finish]
+    searchForShortestPath {Location = start; Visited = []; TotalDistance = 0} Map.empty
+    |> fun shortestPaths -> shortestPaths[finish]
 
 let getShortestDistance start finish =
     Path.Combine(__SOURCE_DIRECTORY__, "resources", "data.csv")
